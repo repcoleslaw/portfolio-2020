@@ -7,12 +7,15 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "d3": "^5.16.0",
-    "highcharts": "^8.1.0",
+    "highcharts": "^8.1.2",
     "jquery-ui": "^1.12.1",
     "react": "^16.13.1",
+    "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
+    "react-graph-vis": "^1.0.5",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "three": "^0.117.1",
     "vis-network": "^7.6.9"
   },
   "scripts": {

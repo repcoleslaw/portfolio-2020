@@ -1,42 +1,105 @@
 *{
   padding:0;
   margin:0;
-  box-sizing: border-box;
-}
 
-.App{
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.main-wrapper{
 
 }
 
+/* PAGE STRUCTURE */
+
+#root{
+  height:100vh;
+}
+.page-wrapper{
+  position: relative;
+  margin:0 auto;
+  max-width: 1200px;
+  min-height: 100vh;
+}
+
+.content-inside{
+  height:100%;
+}
+
+
+.container{
+margin:0 auto;
+
+}
 .row{
-  display:flex;
-  flex-direction: row;
+  margin:0;
+  padding:0;
+  width:100%;
 }
 
-.col-25{
-width:25%;
-  border:1px solid red;
+.sidebar{
+  flex:1;
+  padding:1em;
+  margin:0 auto;
+}
+
+.main{
+  flex:4;
   padding:1em;
 }
 
-.col-50{
-  border:1px solid red;
-  width:50%;
+.mini-row{
+  display: flex;
 }
-.col-75{
-  border:1px solid red;
-  width:75%;
+/* Container Overrides */
+.header{
+  margin:0;
 }
 
 
-/* ////////////////// */
+.social-container{
+  display: flex;
+  flex-direction: column;
+  
+}
+.social-container a{
+  width:72px;
+  height:auto;
+  padding:1em;
+}
+.social-icon{
+  width:40px;
+  height:40px;
+}
 
-p {
+
+/* FONTS */
+
+p{
   font-family: 'Roboto Condensed', sans-serif;
-  text-align: justify;
 }
+
+.subtext{
+  bottom: 0;
+  font-size: 14px;
+}
+
+.vertical-text{
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+.vertical-text h1{
+  border-right: 2px solid grey;
+  font-family: 'orator std', sans-serif;
+}
+
+.vertical-quote{
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: 'Roboto Condensed', sans-serif;
+  margin:.5em;
+}
+
+#changetag{
+  background-color: black;
+  font-family: 'Roboto Condensed', sans-serif;
+  color:white;
+  padding:.25em;
+}
+
+
