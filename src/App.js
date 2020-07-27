@@ -43,7 +43,7 @@ class App extends Component {
                     <div className="nav-bottom">
                       <ul id="sub-menu">
                         <li><Link to={'/'} className="nav-link">home</Link></li>
-                        <li><Link to={'/gallery'} className="nav-link">gallery</Link></li>
+                        {/* <li><Link to={'/gallery'} className="nav-link">gallery</Link></li> */}
                         <Popup trigger={<li className="nav-link">contact</li>}
                               modal
                               closeOnDocumentClick>
@@ -57,7 +57,7 @@ class App extends Component {
               </Container>
               <Switch>
                 <Route exact path='/' component={Home} />
-                <Route exact path='/gallery' component={Gallery} />
+                {/* <Route exact path='/gallery' component={Gallery} /> */}
               </Switch>
             {/*close content container*/}
             </div>
@@ -69,7 +69,7 @@ class App extends Component {
                   <p className="vertical-quote" id="changetag"></p>
                   <ul>
                     <li><Link className="foot-link" to={'/'}>home</Link></li>
-                    <li><Link className="foot-link" to={'/cv'}>cv</Link></li>
+                    {/* <li><Link className="foot-link" to={'/cv'}>cv</Link></li> */}
                     {/* <li><Link to={'/blog'}>blog</Link></li> */}
                   </ul>
                 </div>

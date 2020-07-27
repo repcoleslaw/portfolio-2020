@@ -15,10 +15,10 @@ function Modal() {
 
       <hr/>
       <div id="modal-socials">
-        <img src={linkedIn} alt="linkedIn"></img>
-        <img src={instagram} alt="instagram"></img>
-        <img src={pinterest} alt="pinterest"></img>
-        <img src={twitter} alt="twitter"></img>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/andrewrrcole/"><img className="social-icon" alt="linkedin" src={linkedIn} /></a>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/arrcole/"><img className="social-icon" alt="instagram" src={instagram} /></a>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.pinterest.ca/andrewcole58/boards/"><img className="social-icon" alt="pinterest" src={pinterest} /></a>
+                <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/arrcole"><img className="social-icon" alt="pinterest" src={twitter} /></a>
         <p className="modal-text">or add me on socials, I follow back.</p>
       </div>
       </div>
