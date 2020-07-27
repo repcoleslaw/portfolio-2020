@@ -2,8 +2,6 @@
 .foot-bar{
   background:#eee;
   margin:0 auto;
-  position:absolute;
-  bottom:0;
   width:100%;
  }
 
@@ -27,6 +25,18 @@
   text-decoration: none;
   list-style: none;
   letter-spacing: 2.5px;
+}
+
+.foot-link{
+  color:black;
+  text-decoration: none;
+  list-style: none;
+}
+
+.foot-link:hover{
+  color:#DA1C5C;  
+  text-decoration: none;
+  list-style: none;
 }
 
 #copymark{

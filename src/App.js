@@ -1,102 +1,85 @@
 import React, { Component } from 'react';
-import Graph from "react-graph-vis";
-// import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 // bootstrap imports
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Popup from 'reactjs-popup';
+import Modal from './components/common/modal';
 
-import Header from './components/common/header';
-import Footer from './components/common/footer';
 
-import NetworkSelector from './components/Pages/d3-viz/networkSelector';
-import ChartWrapper from './components/Pages/d3-viz/ChartWrapper';
-
+// import pages
+import Home from './components/Pages/home';
+import Gallery from './components/Pages/gallery';
 
 // import styling
 import './App.css';
+import './components/common/header.css';
+import './components/common/footer.css';
 
 
 //import assets
-import connect from './assets/icons8-connect.svg';
-import insta from './assets/icons8-instagram.svg';
-import linkedin from './assets/icons8-linkedin.svg';
-import pinterest from './assets/icons8-pinterest.svg';
-
+import logo from './assets/logo.png';
 
 
 
 class App extends Component {
 
-  state = {
-    network: "all"
-  }
-
-  // update network statemethod
-  networkSelected = (network) => {
-    this.setState({ network: network });
-  };
 
 
   render() {
     return (
       <div className="App">
-        <div className='page-wrapper'>
-          <div className='content-inside'>
-            <Container bsPrefix="header">
-              <Header />
-            </Container>
-            {/* First Section */}
-            <Container>
-              <Row>
-                <Col bsPrefix="sidebar">
-                  <div className="vertical-text">
-                    <p className="vertical-quote">designer</p>
-                    <p className="vertical-quote">problem-solver</p>
-                    <p className="vertical-quote">data-storyteller</p>
-                    <h1>diagrammatic</h1>
-
+        <Router>
+          <div className='page-wrapper'>
+            <div className='content-inside'>
+              <Container bsPrefix="header">
+                <div className='nav-bar'>
+                  <div className="nav">
+                    <div className="nav-top">
+                      <img className='nav-logo' src={logo} alt='logo'></img>
+                      <h1 id="header_name">andrew.rr.cole</h1>
+                    </div>
+                    <div className="nav-bottom">
+                      <ul id="sub-menu">
+                        <li><Link to={'/'} className="nav-link">home</Link></li>
+                        <li><Link to={'/gallery'} className="nav-link">gallery</Link></li>
+                        <Popup trigger={<li className="nav-link">contact</li>}
+                              modal
+                              closeOnDocumentClick>
+                            <Modal/>
+                          </Popup>
+                      </ul>
+                    </div>
                   </div>
-
-                  <div className="social-container">
-                    <a href="#"><img className="social-icon" alt="connect" src={connect} /></a>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/andrewrrcole/"><img className="social-icon" alt="linkedin" src={linkedin} /></a>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/arrcole/"><img className="social-icon" alt="instagram" src={insta} /></a>
-                    <a target="_blank" rel="noopener noreferrer" href="https://www.pinterest.ca/andrewcole58/boards/"><img className="social-icon" alt="pinterest" src={pinterest} /></a>
-                  </div>
-
-                </Col>
-                <Col bsPrefix="main">
-                  work in progress
-                  the current network is {this.state.network}
-                  <ChartWrapper/>
-                </Col>
-
-                <NetworkSelector network={this.networkSelected} />
-              </Row>
-            </Container>
-            {/* Second Section */}
-            <Container>
-              <Row>
-                <Col></Col>
-                <Col></Col>
-                <Col>
-                  <hr /><p>
-                    If it is not obvious, the site is under construction.
-                    Surely I can think of a better use of a personal website thatn juse a copy+paste of information you'd find in a fixed resume. </p>
-                </Col>
-              </Row>
-            </Container>
-
-
+                  <div className='nav-accent'></div>
+                </div>
+              </Container>
+              <Switch>
+                <Route exact path='/' component={Home} />
+                <Route exact path='/gallery' component={Gallery} />
+              </Switch>
             {/*close content container*/}
-          </div>
-          {/* Footer Section */}
-          <Footer />
-          {/* closing page wrapper */}
-        </div>
+            </div>
+            {/* Footer Section */}
+            <div className='foot-bar'>
+              <div className='foot-accent'></div>
+              <div className='foot-container'>
+                <div className='foot-column'>
+                  <p className="vertical-quote" id="changetag"></p>
+                  <ul>
+                    <li><Link className="foot-link" to={'/'}>home</Link></li>
+                    <li><Link className="foot-link" to={'/cv'}>cv</Link></li>
+                    {/* <li><Link to={'/blog'}>blog</Link></li> */}
+                  </ul>
+                </div>
+              </div>
+              <p id="copymark">arrcole © 2020</p>
+            </div>
 
+            {/* closing page wrapper */}
+          </div>
+        </Router>
         {/* closing app */}
       </div>
     );

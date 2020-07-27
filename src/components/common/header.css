@@ -30,6 +30,15 @@
  
 }
 
+.nav-link{
+  color:black;
+  padding:0;
+  cursor: pointer;
+}
+.nav-link:hover{
+  color:#DA1C5C;
+}
+
  .nav-bottom{
    flex: 3;
    justify-content: right;

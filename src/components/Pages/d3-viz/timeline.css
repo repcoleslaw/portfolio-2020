@@ -1,0 +1,20 @@
+.timeline-bars {
+  box-sizing: border-box;
+  box-shadow: 10px 10px 8px #888888;
+}
+
+div.tooltip {	
+  position: absolute;			
+  text-align: center;			
+  width: auto;					
+  height: auto;					
+  padding: 3px;	
+  font-family: "Roboto Condensed", sans-serif;			
+  font: 12px;		
+  background: #6CCBDB;	
+  color:white;
+  font-weight: bold;
+  border: 0px;		
+  border-radius: 8px;			
+  pointer-events: none;			
+}

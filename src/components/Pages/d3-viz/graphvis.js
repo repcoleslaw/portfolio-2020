@@ -1,373 +1,465 @@
-import React from 'react'
+import React, { Component } from 'react'
  
 import Graph from "react-graph-vis";
 
-function Graphvis() {
+import './network.css';
+
+
+class Graphvis extends Component {
+  
+  state = {
+    graph:{
+      nodes:[
+        { id: 0, label: "[a]", group: 'myCore', value: 100 },
+  
+        { id: 1, label: "Architecture", group: 'Categories', value: 50 },
+        { id: 2, label: "Data Viz", group: 'Categories', value: 50 },
+        { id: 3, label: "Product Design", group: 'Categories', value: 50 },
+        { id: 4, label: "Interests", group: 'Categories', value: 60 },
+  
+        { id: 100, label: "B.A.S", group: "Role", value: 30 },
+        { id: 101, label: "M.Arch", group: "Role", value: 30 },
+        { id: 102, label: "BRIDGE", group: "Company", value: 25 },
+        { id: 103, label: "F_RMLab", group: "Company", value: 25 },
+        { id: 104, label: "Arch.Intern", group: "Role", value: 25 },
+        { id: 105, label: "Renderer", group: "Role", value: 25 },
+        { id: 106, label: "Architectural Data Analyst", group: "Role", value: 25 },
+        { id: 107, label: "DBEI Committee Member", group: "Role", value: 25 },
+        { id: 108, label: "Front-End Dev", group: "Role", value: 25 },
+  
+        { id: 200, label: "Toronto Rail Deck Park", group: "eduProject", value: 25 },
+        { id: 201, label: "Dreki Spa", group: "eduProject", value: 10 },
+        { id: 202, label: "Rattlesnake Point", group: "eduProject", value: 10 },
+        { id: 203, label: "Museo Roma", group: "eduProject", value: 10},
+        { id: 204, label: "C_BE", group: "eduProject", value: 10 },
+        
+        { id: 300, label: "SickKids", group: "project", value: 25 },
+        { id: 301, label: "UHN", group: "project", value: 25 },
+        { id: 302, label: "Sinai Health System", group: "project", value: 25 },
+        { id: 303, label: "Calgary Cancer Centre", group: "project", value: 25 },
+        { id: 304, label: "KMCWC", group: "project", value: 25 },
+        { id: 305, label: "Madison Square Gardens", group: "project", value: 25 },
+        { id: 306, label: "LA Forum", group: "project", value: 25 },
+        { id: 307, label: "NYC Stadium Feasibility", group: "project", value: 25 },
+        { id: 308, label: "Bruce Power", group: "project", value: 25 },
+        { id: 309, label: "Brockley Residential", group: "project", value: 25 },
+        { id: 310, label: "Vauxhall BID", group: "project", value: 25 },
+        { id: 311, label: "Malta Hospital", group: "project", value: 25 },
+        { id: 312, label: "Autocase", group: 'project', value: 25 },
+        { id: 313, label: "Revlo", group: 'project', value: 25 },
+        { id: 314, label: "This.Dot", group: 'project', value: 25 },
+        { id: 315, label: "Neurobody", group: 'project', value: 25 },
+        
+        { id: 400, label: "3DM", group: 'myTools', value: 25 },
+        { id: 401, label: "Grasshopper", group: 'myTools', value: 25 },
+        { id: 402, label: "Revit", group: "myTools", value: 35 },
+        { id: 403, label: "SQL", group: "myTools", value: 25 },
+        { id: 404, label: "javascript", group: "myTools", value: 35 },
+        { id: 405, label: "HTML", group: "myTools", value: 25 },
+        { id: 406, label: "GIS", group: 'myTools', value: 25 },
+        { id: 407, label: "Sketch-Up", group: 'myTools', value: 25 },
+        { id: 408, label: "PowerBI", group: 'myTools', value: 25 },
+        { id: 409, label: "D3.js", group: 'myTools', value: 25 },
+        { id: 410, label: "React.js", group: 'myTools', value: 25 },
+        { id: 411, label: "Rhino", group: 'myTools', value: 25 },
+  
+  
+        { id: 500, label: "3D Printing", group: 'Things', value: 25 },
+        { id: 501, label: "Soccer", group: 'Things', value: 25 },
+        { id: 502, label: "Hockey Goalie", group: 'Things', value: 25 },
+        { id: 503, label: "Volleyball", group: 'Things', value: 25 },
+        { id: 504, label: "Starcraft 2", group: 'Things', value: 25 },
+        { id: 505, label: "Piano", group: 'Things', value: 25 },
+  
+  
+        { id: 600, label: "BBB Architects", group: 'Company', value: 25 },
+        { id: 601, label: "Foam Factor", group: 'Company', value: 25 },
+        { id: 602, label: "Base Associates", group: 'Company', value: 25 },
+        { id: 603, label: "Stantec", group: 'Company', value: 25 },
+        { id: 604, label: "University of Waterloo", group: 'Company', value: 25 },
+  
+        { id: 700, label: "Toronto, CA", group: 'Where', value: 25 },
+        { id: 701, label: "London, UK", group: 'Where', value: 25 },
+        { id: 702, label: "Rome, ITA", group: 'Where', value: 25 },
+        { id: 703, label: "Cambridge, CA", group: 'Where', value: 25 },
+      ],
+      edges: [
+        // CORE TO MAIN HUBS
+    { from: 0, to: 1 },
+    { from: 0, to: 2 },
+    { from: 0, to: 3 },
+    { from: 0, to: 4 },
+  
+    // Arch to 
+        //roles
+    { from: 1, to: 100 },
+    { from: 1, to: 101 },
+    { from: 1, to: 102 },
+    { from: 1, to: 103 },
+    { from: 1, to: 104 },
+    { from: 1, to: 105 },
+    { from: 1, to: 106 },
+    { from: 1, to: 107 },
+  
+    // Roles to Companies
+    { from: 104, to: 600 },
+    { from: 105, to: 600 },
+    { from: 104, to: 602 },
+    { from: 104, to: 603 },
+    { from: 106, to: 603 },
+    { from: 100, to: 604 },
+    { from: 101, to: 604 },
+        //edu projects
+  
+    { from: 100, to: 201 },
+    { from: 100, to: 202 },
+    { from: 100, to: 203 },
+    { from: 100, to: 204 },
+    { from: 101, to: 200 },
+  
+    //projects to roles
+    { from: 300, to: 104},
+    { from: 301, to: 106 },
+    { from: 302, to: 106 },
+    { from: 303, to: 104 },
+    { from: 305, to: 104 },
+    { from: 306, to: 105 },
+    { from: 307, to: 105 },
+    { from: 308, to: 104 },
+    { from: 309, to: 104 },
+    { from: 310, to: 104 },
+  
+    //projects to product roles
+    { from: 312, to: 3 },
+    { from: 313, to: 3 },
+    { from: 314, to: 3 },
+    { from: 315, to: 3 },
+  
+  
+    // Data Viz to roles
+    { from: 2, to: 106 },
+    { from: 2, to: 107 },
+
+    //projects to Data viz
+    { from: 301, to: 2 }, //UHN
+    { from: 302, to: 2 },
+    { from: 304, to: 2 },
+    { from: 311, to: 2 },
+  
+  
+    // Companies to Where
+    { from: 700, to: 600 },
+    { from: 700, to: 601 },
+    { from: 701, to: 602 },
+    { from: 700, to: 603 },
+    { from: 702, to: 604 },
+    { from: 703, to: 604 },
+    { from: 604, to: 103, dashes:[5,5]},
+    { from: 604, to: 102, dashes:[5,5]},
+  
+    //Tools to Toolset
+    //Tools to 3DM
+    { from: 401, to: 400 },
+    { from: 402, to: 400 },
+    { from: 407, to: 400 },
+    { from: 411, to: 400 },
+    { from: 400, to: 1 },
+    { from: 400, to: 100 },
+    { from: 400, to: 101 },
+  
+    //3dm dashed
+    { from: 401, to: 411, dashes: [5, 5] },
+  
+    //Tools to Dataviz
+    { from: 403, to: 2 },
+    { from: 404, to: 2 },
+    { from: 406, to: 2 },
+    { from: 408, to: 2 },
+    { from: 409, to: 2 },
+  
+    // Tools Dashed
+    { from: 404, to: 409, dashes: [5, 5] }, // js
+    { from: 404, to: 410, dashes: [5, 5] },
+    { from: 404, to: 405, dashes: [5, 5] },
+    { from: 403, to: 408, dashes: [5, 5] }, // sql
+    { from: 403, to: 406, dashes: [5, 5] }, // sql
+  
+    //Tools to Front End
+    { from: 405, to: 108 },
+    { from: 404, to: 108 },
+    { from: 410, to: 108 },
+    //Front End to Interests
+    { from: 108, to: 4 },
+    //hobbies to interests
+    { from: 500, to: 4 },
+    { from: 501, to: 4 },
+    { from: 502, to: 4 },
+    { from: 503, to: 4 },
+    { from: 504, to: 4 },
+    { from: 505, to: 4 },
+      ]
+    },
+    options: {
+      nodes: {
+        shape: "dot",
+        font: {
+          size: 12,
+          face: "Roboto Condensed"
+        },
+        shadow: true,
+      },
+      edges: {
+        width: 1,
+        color: { inherit: "from" },
+        smooth: true,
+        shadow: true,
+      },
+      physics: {
+        forceAtlas2Based: {
+          gravitationalConstant: -20,
+          centralGravity: 0.0075,
+          springLength: 50,
+          springConstant: 0.18
+        },
+        maxVelocity: 80,
+        solver: "forceAtlas2Based",
+        timestep: 0.25,
+        stabilization: { iterations: 50 }
+      },
+      interaction: {
+        tooltipDelay: 150,
+        hideEdgesOnDrag: false,
+        hideEdgesOnZoom: true,
+        hover: true,
+        navigationButtons: true,
+        keyboard: true,
+      },
+      groups: {
+        myCore: {
+          shape:"circle",
+          size:25,
+          color: {
+            background: '#DA1C5C',
+            border: '#DA1C5C',
+            hover: {
+              background: '#DA1C5C',
+              border: '#DA1C5C',
+              font:{
+                color: '#DA1C5C',
+              },
+              size:25,
+            },
+            highlight: {
+              border: '#DA1C5C',
+              background: '#DA1C5C',
+              font:{
+                color: '#E2474B',
+              },
+            },
+          },
+          borderWidth: 2,
+          font: {
+            face: 'Playfair Display',
+            color: 'white',
+            size: 24,
+            align: "center",
+            bold: true,
+          },
+        },
+  
+        project: {
+          shape: "square",
+          size:6,   
+          color: {
+            background: 'white',
+            border: '#DA1C5C',
+            highlight: {
+              border: '#DA1C5C',
+              background: 'white'
+            },
+            hover: {
+              background: 'white',
+              border: '#DA1C5C',
+            },
+          },
+          borderWidth: 2,
+          font: {
+            face: 'Roboto Condensed',
+            color: '#111',
+            size: 15,
+          },
+        },
+  
+        eduProject: {
+          shape:"square",
+          size:6,     
+          color: {
+            background: 'white',
+            border: '#DA1C5C',
+            highlight: {
+              border: '#DA1C5C',
+              background: 'white'
+            },
+            hover: {
+              background: 'white',
+              border: '#DA1C5C',
+            },
+          },
+          borderWidth: 1,
+          font: {
+            face: 'Roboto Condensed',
+            color: '#111',
+            size: 15,
+          },
+        },
     
-  const graph = {
-    nodes:[
-      { id: 0, label: "arrcole", group: 'myCore', value: 80 },
-      { id: 1, label: "Architecture", group: 'myArch', value: 60 },
-      { id: 2, label: "Data", group: 'myData', value: 60 },
-      { id: 3, label: "Tools", group: 'myTools', value: 60 },
-      { id: 4, label: "Hobbies", group: 'myHobbies', value: 60 },
-      { id: 5, label: "UWSA", group: "myArch", value: 45 },
-      { id: 6, label: "Projects", group: "myArch", value: 45 },
-      { id: 7, label: "Thesis", group: "myArch", value: 25 },
-      { id: 8, label: "Undergrad", group: "myArch", value: 25 },
-      { id: 9, label: "Dreki Spa", group: "myArch", value: 25 },
-      { id: 10, label: "Rattlesnake Point", group: "myArch", value: 25 },
-      { id: 11, label: "Museo Roma", group: "myArch", value: 25},
-      { id: 12, label: "C_BE", group: "myArch", value: 25 },
-      { id: 13, label: "BRIDGE", group: "myArch", value: 25 },
-      { id: 14, label: "SickKids", group: "myArch", value: 25 },
-      { id: 15, label: "UHN", group: "myArch", value: 25 },
-      { id: 16, label: "Sinai Health System", group: "myArch", value: 25 },
-      { id: 17, label: "Calgary Cancer Centre", group: "myArch", value: 25 },
-      { id: 18, label: "KMCWC", group: "myArch", value: 25 },
-      { id: 19, label: "Madison Square Gardens", group: "myArch", value: 25 },
-      { id: 20, label: "LA Forum", group: "myArch", value: 25 },
-      { id: 21, label: "NYC Stadium Feasibility", group: "myArch", value: 25 },
-      { id: 22, label: "Bruce Power", group: "myArch", value: 25 },
-      { id: 23, label: "Brockley Residential", group: "myArch", value: 25 },
-      { id: 24, label: "Vauxhall BID", group: "myArch", value: 25 },
-      { id: 25, label: "Venues & Athletic Facilities", group: "myArch", value: 40 },
-      { id: 26, label: "Healthcare", group: "myArch", value: 40 },
-      { id: 27, label: "Malta Hospital", group: "myArch", value: 25 },
-      { id: 28, label: "TFC Training", group: "myArch", value: 25 },
-      { id: 29, label: "Raptors Training", group: "myArch", value: 25 },
-      { id: 30, label: "Generative & Parametric", group: 'myTools', value: 25 },
-      { id: 31, label: "Grasshopper", group: 'myTools', value: 25 },
-      { id: 32, label: "Dynamo", group: 'myTools', value: 25 },
-      { id: 33, label: "Coding", group: "myCode", value: 35 },
-      { id: 34, label: "SQL", group: "myCode", value: 25 },
-      { id: 35, label: "javascript", group: "myCode", value: 35 },
-      { id: 36, label: "HTML/CSS", group: "myCode", value: 25 },
-      { id: 37, label: "GIS", group: 'myTools', value: 25 },
-      { id: 38, label: "3DM", group: 'myTools', value: 25 },
-      { id: 39, label: "Revit", group: 'myTools', value: 25 },
-      { id: 40, label: "Rhino", group: 'myTools', value: 25 },
-      { id: 41, label: "Sketch-Up", group: 'myTools', value: 25 },
-      { id: 42, label: "PowerBI", group: 'myData', value: 25 },
-      { id: 43, label: "D3.js", group: 'myData', value: 25 },
-      { id: 44, label: "Sports", group: 'myHobbies', value: 25 },
-      { id: 45, label: "Games", group: 'myHobbies', value: 25 },
-      { id: 46, label: "Music", group: 'myHobbies', value: 25 },
-      { id: 47, label: "Soccer", group: 'myHobbies', value: 25 },
-      { id: 48, label: "Hockey", group: 'myHobbies', value: 25 },
-      { id: 49, label: "Volleyball", group: 'myHobbies', value: 25 },
-      { id: 50, label: "Starcraft", group: 'myHobbies', value: 25 },
-      { id: 51, label: "Piano", group: 'myHobbies', value: 25 },
-      { id: 52, label: "Trumpet", group: 'myHobbies', value: 25 },
-      { id: 53, label: "GameDev", group: 'myHobbies', value: 25 },
-      { id: 54, label: "ARPG", group: 'myHobbies', value: 25 },
-      { id: 55, label: "blog", group: 'mySocials', value: 25, url: 'http://www.arrcole.com/blog/' },
-      { id: 56, label: "twitter", group: 'mySocials', value: 25, url: "https://twitter.com/arrcole" },
-      { id: 57, label: "instagram", group: 'mySocials', value: 25, url: "https://www.instagram.com/arrcole/" },
-      { id: 58, label: "Product Design", group: 'myProducts', value: 45 },
-      { id: 59, label: "Autocase", group: 'myProducts', value: 25 },
-      { id: 60, label: "Revlo", group: 'myProducts', value: 25 },
-      { id: 61, label: "This.Dot", group: 'myProducts', value: 25 },
-      { id: 62, label: "youtube", group: 'mySocials', value: 25, url: "https://www.youtube.com/channel/UCBjIlBmhpzifvXySKosvuEg" }
-    ],
-    edges: [
-  { from: 1, to: 0 },
-  { from: 1, to: 3 },
-  { from: 2, to: 0 },
-  { from: 3, to: 0 },
-  { from: 4, to: 0 },
-  { from: 5, to: 1 },
-  { from: 6, to: 1 },
-  { from: 7, to: 5 },
-  { from: 8, to: 5 },
-  { from: 9, to: 8 },
-  { from: 10, to: 8 },
-  { from: 11, to: 8 },
-  { from: 12, to: 8 },
-  { from: 13, to: 5 },
-  { from: 14, to: 26 },
-  { from: 15, to: 26 },
-  { from: 16, to: 26 },
-  { from: 17, to: 26 },
-  { from: 18, to: 26 },
-  { from: 19, to: 25 },
-  { from: 20, to: 25 },
-  { from: 21, to: 25 },
-  { from: 22, to: 6 },
-  { from: 23, to: 6 },
-  { from: 24, to: 6 },
-  { from: 25, to: 6 },
-  { from: 26, to: 6 },
-  { from: 27, to: 26 },
-  { from: 28, to: 25 },
-  { from: 29, to: 25 },
-  { from: 30, to: 3 },
-  { from: 31, to: 30 },
-  { from: 32, to: 30 },
-  { from: 33, to: 3 },
-  { from: 33, to: 4 },
-  { from: 34, to: 33 },
-  { from: 34, to: 37 },
-  { from: 34, to: 2 },
-  { from: 35, to: 33 },
-  { from: 35, to: 2 },
-  { from: 36, to: 33 },
-  { from: 37, to: 3 },
-  { from: 38, to: 3 },
-  { from: 39, to: 38 },
-  { from: 39, to: 32 },
-  { from: 40, to: 38 },
-  { from: 40, to: 31 },
-  { from: 41, to: 38 },
-  { from: 42, to: 2 },
-  { from: 43, to: 2 },
-  { from: 44, to: 4 },
-  { from: 45, to: 4 },
-  { from: 46, to: 4 },
-  { from: 47, to: 44 },
-  { from: 48, to: 44 },
-  { from: 49, to: 44 },
-  { from: 50, to: 45 },
-  { from: 51, to: 46 },
-  { from: 52, to: 46 },
-  { from: 53, to: 45 },
-  { from: 54, to: 45 },
-  { from: 55, to: 0 },
-  { from: 56, to: 0 },
-  { from: 57, to: 0 },
-  { from: 43, to: 35 },
-  { from: 58, to: 0 },
-  { from: 59, to: 58 },
-  { from: 60, to: 58 },
-  { from: 61, to: 58 },
-  { from: 62, to: 0 }
-]
-  };
-
-  const options = {
-    nodes: {
-      shape: "dot",
-      scaling: {
-        min: 10,
-        max: 30,
-        label: {
-          min: 8,
-          max: 30,
-          drawThreshold: 2,
-          maxVisible: 30
-        }
-      },
-      font: {
-        size: 12,
-        face: "Roboto Condensed"
+        myTools: {
+          shape:"dot",
+          size: 6,
+          color: {
+            background: '#6CCBDB',
+            border: '#6CCBDB',
+            hover: {
+              background: 'white',
+              border: '#6CCBDB',
+            },
+            highlight: {
+              border: '#6CCBDB',
+              background: 'white'
+            },
+          },
+          borderWidth: 1,
+          font: {
+            face: 'Roboto Condensed',
+            color: '#111',
+            size: 18,
+          },
+        },
+        
+        Things: {
+          size:6,
+          color: {
+            background: 'white',
+            border: '#6CCBDB',
+            hover: {
+              background: 'white',
+              border: '#6CCBDB',
+            },
+            highlight: {
+              border: '#6CCBDB',
+              background: 'white'
+            },
+          },
+          borderWidth: 2,
+          font: {
+            face: 'Roboto Condensed',
+            color: '#111',
+            size: 15,
+          },
+        },
+        
+        Role: {
+          shape:"dot",
+          size:15,
+          color: {
+            background: 'white',
+            border: '#DA1C5C',
+            hover: {
+              background: 'white',
+              border: '#DA1C5C',
+            },
+            highlight: {
+              border: '#DA1C5C',
+              background: 'white'
+            },
+          },
+          borderWidth: 2,
+          font: {
+            face: 'Roboto Condensed',
+            color: '#111',
+            size: 16,
+          },
+        },
+  
+        Categories: {
+          size:15,
+          color: {
+            background: '#DA1C5C',
+            border: '#DA1C5C',
+            hover: {
+              background: 'white',
+              border: '#DA1C5C',
+            },
+            highlight: {
+              border: '#DA1C5C',
+              background: 'white'
+            },
+          },
+          borderWidth: 3,
+          font: {
+            face: 'Roboto Condensed',
+            color: '#292929',
+            size: 18,
+          },
+        },
+  
+        Where: {
+          size:7,
+          color: {
+            background: 'white',
+            border: '#6CCBDB',
+            hover: {
+              background: 'white',
+              border: '#6CCBDB',
+            },
+            highlight: {
+              border: '#6CCBDB',
+              background: 'white'
+            },
+          },
+          borderWidth: 3,
+          font: {
+            face: 'Roboto Condensed',
+            color: '#292929',
+            size: 18,
+          },
+        },
+  
+        Company: {
+          size:7,
+          shape:"square",
+          color: {
+            background: '#DA1C5C',
+            border: '#DA1C5C',
+            hover: {
+              background: 'white',
+              border: '#DA1C5C',
+            },
+            highlight: {
+              border: '#DA1C5C',
+              background: 'white'
+            },
+          },
+          borderWidth: 3,
+          font: {
+            face: 'Roboto Condensed',
+            color: '#292929',
+            size: 18,
+          },
+        },
+    
       }
     },
-    edges: {
-      width: 0.15,
-      color: { inherit: "from" },
-      smooth: {
-        type: "continuous"
-      }
-    },
-    physics: {
-      forceAtlas2Based: {
-        gravitationalConstant: -50,
-        centralGravity: 0.01,
-        springLength: 100,
-        springConstant: 0.18
-      },
-      maxVelocity: 80,
-      solver: "forceAtlas2Based",
-      timestep: 0.25,
-      stabilization: { iterations: 50 }
-    },
-    interaction: {
-      tooltipDelay: 150,
-      hideEdgesOnDrag: false,
-      hideEdgesOnZoom: true,
-      hover: true
-    },
-    groups: {
-      myCore: {
-        color: {
-          background: 'white',
-          border: '#2F3A56',
-          hover: {
-            background: 'white',
-            border: '#E2474B',
-          },
-          highlight: {
-            border: 'black',
-            background: 'white'
-          },
-        },
-        borderWidth: 6,
-        font: {
-          face: 'Playfair Display',
-          color: '#E2474B',
-          size: 18,
-        },
-      },
-      myArch: {     
-        color: {
-          background: 'white',
-          border: '#292929',
-          highlight: {
-            border: 'black',
-            background: 'white'
-          },
-          hover: {
-            background: 'white',
-            border: '#E2474B',
-          },
-        },
-        borderWidth: 3,
-        font: {
-          face: 'Roboto Condensed',
-          color: '#111',
-          size: 18,
-        },
-      },
-  
-      myTools: {
-        color: {
-          background: 'white',
-          border: '#292929',
-          hover: {
-            background: 'white',
-            border: '#E2474B',
-          },
-          highlight: {
-            border: 'black',
-            background: 'white'
-          },
-        },
-        borderWidth: 3,
-        font: {
-          face: 'Roboto Condensed',
-          color: '#111',
-          size: 18,
-        },
-      },
-      myCode: {
-        color: {
-          background: 'white',
-          border: '#292929',
-          hover: {
-            background: 'white',
-            border: '#000000',
-          },
-          highlight: {
-            border: 'black',
-            background: 'white'
-          },
-        },
-        borderWidth: 3,
-        font: {
-          face: 'Roboto Condensed',
-          color: '#111',
-          size: 18,
-        },
-      },
-      myHobbies: {
-        color: {
-          background: 'white',
-          border: '#292929',
-          hover: {
-            background: 'white',
-            border: '#E2474B',
-          },
-          highlight: {
-            border: 'black',
-            background: 'white'
-          },
-        },
-        borderWidth: 3,
-        font: {
-          face: 'Roboto Condensed',
-          color: '#111',
-          size: 18,
-        },
-      },
-      myData: {
-        color: {
-          background: 'white',
-          border: '#292929',
-          hover: {
-            background: 'white',
-            border: '#E2474B',
-          },
-          highlight: {
-            border: 'black',
-            background: 'white'
-          },
-        },
-        borderWidth: 3,
-        font: {
-          face: 'Roboto Condensed',
-          color: '#111',
-          size: 18,
-        },
-      },
-      mySocials: {
-        color: {
-          background: 'white',
-          border: '#292929',
-          hover: {
-            background: 'white',
-            border: '#E2474B',
-          },
-          highlight: {
-            border: 'black',
-            background: 'white'
-          },
-        },
-        borderWidth: 2,
-        font: {
-          face: 'Roboto Condensed',
-          color: '#111',
-          size: 18,
-        },
-      },
-      myProducts: {
-        color: {
-          background: 'white',
-          border: '#2F3A56',
-          hover: {
-            background: 'white',
-            border: '#E2474B',
-          },
-          highlight: {
-            border: 'black',
-            background: 'white'
-          },
-        },
-        borderWidth: 3,
-        font: {
-          face: 'Roboto Condensed',
-          color: '#292929',
-          size: 18,
-        },
-      },
-  
-    }
-  };
+  }
 
-  const events = {
-    select: function(event) {
-      var { nodes, edges } = event;
-      console.log("Selected nodes:");
-      console.log(nodes);
-      console.log("Selected edges:");
-      console.log(edges);
-    }
-  };
-
+render(){
   return (
     <div>
-    <Graph graph={graph} options={options} events={events} style={{height: "640px",  }} />
+    <Graph graph={this.state.graph} options={this.state.options} style={{height: "676px"}} />
     </div>
   )
+}
+  
 }
 
 export default Graphvis
