@@ -456,9 +456,9 @@ class Timeline extends Component {
     // const data =  [12, 5, 6, 6, 9, 10];
     const gantt = this.state.data.tasksArray
 
-    const WIDTH = 500;
+    const WIDTH = 375;
     const HEIGHT = 900;
-    const MARGIN = 75;
+    const MARGIN = 50;
 
 
     // Initialize SVG canvas
@@ -474,7 +474,7 @@ class Timeline extends Component {
     const xScale = d3.scaleBand()
       .domain(gantt.map((d) => d.type))
       .padding(1)
-      .range([0, 400]);
+      .range([0,275]);
 
 
     svg.append("g")
@@ -526,7 +526,7 @@ svg.selectAll('rect')
       .attr("x", function (d) { return xScale(d.type) + MARGIN })
       .attr("y", function (d) { return yScale(new Date(d.endTime)) })
       .attr("height", function (d) { return yScale(new Date(d.startTime)) - yScale(new Date(d.endTime)) })
-      .attr("width", 25)
+      .attr("width", 15)
       .attr('fill', function (d) {
         if (d.sort === 'Personal') {
           if (d.type === 'Education'){

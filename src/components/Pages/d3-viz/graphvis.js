@@ -10,7 +10,7 @@ class Graphvis extends Component {
   state = {
     graph:{
       nodes:[
-        { id: 0, label: "[a]", group: 'myCore', value: 100 },
+        { id: 0, label: "[a]", group: 'myCore', value: 50 },
   
         { id: 1, label: "Architecture", group: 'Categories', value: 50 },
         { id: 2, label: "Data Viz", group: 'Categories', value: 50 },
@@ -50,7 +50,7 @@ class Graphvis extends Component {
         { id: 314, label: "This.Dot", group: 'project', value: 25 },
         { id: 315, label: "Neurobody", group: 'project', value: 25 },
         
-        { id: 400, label: "3DM", group: 'myTools', value: 25 },
+        { id: 400, label: "3DM Kit", group: 'myTools', value: 25 },
         { id: 401, label: "Grasshopper", group: 'myTools', value: 25 },
         { id: 402, label: "Revit", group: "myTools", value: 35 },
         { id: 403, label: "SQL", group: "myTools", value: 25 },
@@ -62,6 +62,11 @@ class Graphvis extends Component {
         { id: 409, label: "D3.js", group: 'myTools', value: 25 },
         { id: 410, label: "React.js", group: 'myTools', value: 25 },
         { id: 411, label: "Rhino", group: 'myTools', value: 25 },
+        { id: 412, label: "Figma", group: 'myTools', value: 25 },
+        { id: 413, label: "Illustrator", group: 'myTools', value: 25 },
+        { id: 414, label: "Photoshop", group: 'myTools', value: 25 },
+        { id: 415, label: "InDesign", group: 'myTools', value: 25 },
+        { id: 416, label: "Graphic Kit", group: 'myTools', value: 25 },
   
   
         { id: 500, label: "3D Printing", group: 'Things', value: 25 },
@@ -100,6 +105,11 @@ class Graphvis extends Component {
     { from: 1, to: 105 },
     { from: 1, to: 106 },
     { from: 1, to: 107 },
+
+    //dashed roles
+    { from: 105, to: 104, dashes:[5,5]},
+    { from: 104, to: 106, dashes:[5,5]},
+    { from: 108, to: 2, dashes:[5,5]},
   
     // Roles to Companies
     { from: 104, to: 600 },
@@ -166,10 +176,22 @@ class Graphvis extends Component {
     { from: 400, to: 1 },
     { from: 400, to: 100 },
     { from: 400, to: 101 },
+    { from: 400, to: 105 },
   
     //3dm dashed
     { from: 401, to: 411, dashes: [5, 5] },
+    { from: 400, to: 2, dashes: [5, 5] },
   
+    // Graphics
+    { from: 412, to: 416 },
+    { from: 413, to: 416 },
+    { from: 414, to: 416 },
+    { from: 415, to: 416 },
+
+    //Graphic Roll Up
+    { from: 416, to: 2 },
+    { from: 416, to: 3 },
+    { from: 416, to: 4 },
     //Tools to Dataviz
     { from: 403, to: 2 },
     { from: 404, to: 2 },
@@ -203,8 +225,8 @@ class Graphvis extends Component {
       nodes: {
         shape: "dot",
         font: {
-          size: 12,
-          face: "Roboto Condensed"
+          size: 15,
+          face: "Arial Narrow",
         },
         shadow: true,
       },
@@ -237,7 +259,7 @@ class Graphvis extends Component {
       groups: {
         myCore: {
           shape:"circle",
-          size:25,
+          size:15,
           color: {
             background: '#DA1C5C',
             border: '#DA1C5C',
@@ -247,7 +269,6 @@ class Graphvis extends Component {
               font:{
                 color: '#DA1C5C',
               },
-              size:25,
             },
             highlight: {
               border: '#DA1C5C',
@@ -259,7 +280,7 @@ class Graphvis extends Component {
           },
           borderWidth: 2,
           font: {
-            face: 'Playfair Display',
+            face: 'Arial Narrow',
             color: 'white',
             size: 24,
             align: "center",
@@ -284,7 +305,7 @@ class Graphvis extends Component {
           },
           borderWidth: 2,
           font: {
-            face: 'Roboto Condensed',
+            face: 'Arial Narrow',
             color: '#111',
             size: 15,
           },
@@ -307,7 +328,7 @@ class Graphvis extends Component {
           },
           borderWidth: 1,
           font: {
-            face: 'Roboto Condensed',
+            face: 'Arial Narrow',
             color: '#111',
             size: 15,
           },
@@ -330,7 +351,7 @@ class Graphvis extends Component {
           },
           borderWidth: 1,
           font: {
-            face: 'Roboto Condensed',
+            face: 'Arial Narrow',
             color: '#111',
             size: 18,
           },
@@ -352,7 +373,7 @@ class Graphvis extends Component {
           },
           borderWidth: 2,
           font: {
-            face: 'Roboto Condensed',
+            face: 'Arial Narrow',
             color: '#111',
             size: 15,
           },
@@ -375,7 +396,7 @@ class Graphvis extends Component {
           },
           borderWidth: 2,
           font: {
-            face: 'Roboto Condensed',
+            face: 'Arial Narrow',
             color: '#111',
             size: 16,
           },
@@ -397,7 +418,7 @@ class Graphvis extends Component {
           },
           borderWidth: 3,
           font: {
-            face: 'Roboto Condensed',
+            face: 'Arial Narrow',
             color: '#292929',
             size: 18,
           },
@@ -419,7 +440,7 @@ class Graphvis extends Component {
           },
           borderWidth: 3,
           font: {
-            face: 'Roboto Condensed',
+            face: 'Arial Narrow',
             color: '#292929',
             size: 18,
           },
@@ -442,7 +463,7 @@ class Graphvis extends Component {
           },
           borderWidth: 3,
           font: {
-            face: 'Roboto Condensed',
+            face: 'Arial Narrow',
             color: '#292929',
             size: 18,
           },
@@ -454,8 +475,8 @@ class Graphvis extends Component {
 
 render(){
   return (
-    <div>
-    <Graph graph={this.state.graph} options={this.state.options} style={{height: "676px"}} />
+    <div id="graphcontainer">
+    <Graph graph={this.state.graph} options={this.state.options} style={{height: "inherit"}} />
     </div>
   )
 }

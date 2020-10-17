@@ -14,11 +14,11 @@ function Modal() {
       <p className="modal-text">email me, maybe.</p>
 
       <hr/>
-      <div id="modal-socials">
-            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/andrewrrcole/"><img className="social-icon" alt="linkedin" src={linkedIn} /></a>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/arrcole/"><img className="social-icon" alt="instagram" src={instagram} /></a>
-                <a target="_blank" rel="noopener noreferrer" href="https://www.pinterest.ca/andrewcole58/boards/"><img className="social-icon" alt="pinterest" src={pinterest} /></a>
-                <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/arrcole"><img className="social-icon" alt="pinterest" src={twitter} /></a>
+      <div id="socials">
+      <a href="https://www.linkedin.com/in/andrewrrcole/" target="_blank" rel="noopener noreferrer"><h3>Li</h3></a>
+          <a href="https://twitter.com/arrcole" target="_blank" rel="noopener noreferrer"><h3>Tw</h3></a>
+          <a href="https://www.behance.net/andrewrrco097b" target="_blank" rel="noopener noreferrer"><h3>Bē</h3></a>
+          <a href="https://www.instagram.com/arrcole/" target="_blank" rel="noopener noreferrer"><h3>Ig</h3></a>
         <p className="modal-text">or add me on socials, I follow back.</p>
       </div>
       </div>

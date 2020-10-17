@@ -2,15 +2,23 @@ import React, { Component } from 'react';
 
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
+
 // bootstrap imports
 import Container from 'react-bootstrap/Container';
+
+import Row from 'react-bootstrap/Row';
+
+
+
 import Popup from 'reactjs-popup';
 import Modal from './components/common/modal';
+import AlertDismissibleExample from './components/common/alertpopup';
 
 
 // import pages
 import Home from './components/Pages/home';
-import Gallery from './components/Pages/gallery';
+import About from './components/Pages/about';
+import Portfolio from './components/Pages/portfolio';
 
 // import styling
 import './App.css';
@@ -18,13 +26,9 @@ import './components/common/header.css';
 import './components/common/footer.css';
 
 
-//import assets
-import logo from './assets/logo.png';
-
 
 
 class App extends Component {
-
 
 
   render() {
@@ -34,52 +38,36 @@ class App extends Component {
           <div className='page-wrapper'>
             <div className='content-inside'>
               <Container bsPrefix="header">
-                <div className='nav-bar'>
-                  <div className="nav">
-                    <div className="nav-top">
-                      <img className='nav-logo' src={logo} alt='logo'></img>
-                      <h1 id="header_name">andrew.rr.cole</h1>
-                    </div>
-                    <div className="nav-bottom">
-                      <ul id="sub-menu">
-                        <li><Link to={'/'} className="nav-link">home</Link></li>
-                        {/* <li><Link to={'/gallery'} className="nav-link">gallery</Link></li> */}
-                        <Popup trigger={<li className="nav-link">contact</li>}
-                              modal
-                              closeOnDocumentClick>
-                            <Modal/>
-                          </Popup>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className='nav-accent'></div>
+                <Row>
+                <div><p className="nav-logo">[a]</p></div>
+
+                <div className="nav-bar">
+                    <Link to={'/'} className="nav-link">HOME</Link>
+                    <Link to={'/about'} className="nav-link">ABOUT</Link>
+                    {/* <Link to={'/portfolio'} className="nav-link">PORTFOLIO</Link> */}
+                    <Popup trigger={<a href="#" className="nav-link">CONTACT</a>}
+                      modal
+                      closeOnDocumentClick>
+                    <Modal/>
+                  </Popup>
                 </div>
+                </Row>
               </Container>
+
               <Switch>
                 <Route exact path='/' component={Home} />
-                {/* <Route exact path='/gallery' component={Gallery} /> */}
+                <Route exact path='/about' component={About} />
+                {/* <Route exact path='/portfolio' component={Portfolio} /> */}
               </Switch>
             {/*close content container*/}
+            <AlertDismissibleExample></AlertDismissibleExample>
             </div>
-            {/* Footer Section */}
-            <div className='foot-bar'>
-              <div className='foot-accent'></div>
-              <div className='foot-container'>
-                <div className='foot-column'>
-                  <p className="vertical-quote" id="changetag"></p>
-                  <ul>
-                    <li><Link className="foot-link" to={'/'}>home</Link></li>
-                    {/* <li><Link className="foot-link" to={'/cv'}>cv</Link></li> */}
-                    {/* <li><Link to={'/blog'}>blog</Link></li> */}
-                  </ul>
-                </div>
-              </div>
-              <p id="copymark">arrcole © 2020</p>
-            </div>
+           
 
             {/* closing page wrapper */}
           </div>
         </Router>
+
         {/* closing app */}
       </div>
     );

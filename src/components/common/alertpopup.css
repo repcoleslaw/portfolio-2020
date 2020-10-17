@@ -1,0 +1,29 @@
+.mobile-alert{
+  position:absolute;
+  top:0;
+  padding:2em;
+  background: #DA1C5C;
+  color:#eeeeee;
+  box-shadow: 0px 3px 6px grey;
+  display:none;
+  z-index: 800;
+}
+
+.mobile-alert span{
+  color:white;
+  float:right;
+}
+
+.mobile-footer{
+  position: absolute;
+  z-index: 300;
+  bottom:0;
+  padding:2em;
+  color:#c4c4c4;
+}
+
+@media all and (max-width: 500px) {
+  .mobile-alert{
+    display:block;
+  }
+}
