@@ -9,8 +9,7 @@ import About from './components/Pages/about';
 
 // import styling
 import './App.css';
-import './components/common/header.css';
-import './components/common/footer.css';
+
 
 // import components
 import NotFound from './components/Pages/NotFound';
