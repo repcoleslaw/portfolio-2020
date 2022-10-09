@@ -10,7 +10,6 @@
 }
 .resume-container{
   position:relative;
-  width:60%;
   animation: fadeIn ease 1s;
   -webkit-animation: fadeIn ease 1s;
   -moz-animation: fadeIn ease 1s;

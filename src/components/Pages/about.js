@@ -4,16 +4,29 @@ import React, { Component } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+// mui imports
+import {Grid, Box, Typography, Button} from "@mui/material"
 
 //import other deps
 import ArchResume from './resumes/architectResume';
 import DataResume from './resumes/dataResume';
 import ProdResume from './resumes/prodResume';
-
-
 //import style
 import '../../App.css';
 
+const tempStyle={
+  border:"1px solid red"
+}
+
+const headerStyle = {
+  borderTop:"1px solid lightgrey",
+  borderBottom:"1px solid lightgrey",
+  padding:"1rem 0"
+}
+
+const buttonStyle={
+  margin:"0 1rem"
+}
 
 class About extends Component {
 
@@ -23,52 +36,38 @@ class About extends Component {
     prod: false,
   }
 
- componentWillUnmount(){
-   console.log("unmounting")
- }
-
- handleClick(){
-
- }
-
   render() {
     return (
       <div>
+        <Grid sx={headerStyle} container justifyContent="center">
+          <Grid item sx={tempStyle} >
+            <Button sx={buttonStyle} defaultValue className='neubutton'>product</Button>
+            <Button sx={buttonStyle} defaultValue className='neubutton'>data</Button>
+            <Button sx={buttonStyle} defaultValue className='neubutton'>architecture</Button>
+            <Button sx={buttonStyle} defaultValue className='neubutton'>complete cv</Button>
+            <Button sx={buttonStyle} defaultValue className='neubutton'>x</Button>
+          </Grid>
+        </Grid>
+        <Grid container sx={tempStyle}>
+            <div className="resume-container">
+              {this.state.arch ? <ArchResume/> : null}
+              {this.state.data ? <DataResume/> : null}
+              {this.state.prod ? <ProdResume/> : null}
+            </div>
+        </Grid>
         {/* First Section */}
         <Container bsPrefix="home">
-          <Row bsPrefix="splash">
-
-
-
-              <div className="title">
-              <h1>andrew</h1>
-              <h1>robert</h1>
-              <h1>ralston</h1>
-              <h1>cole</h1>
-              </div>
-
+          {/* <Row bsPrefix="splash">
               <div className="introduction">
-                <p>
-                  I have been finding it an increasingly difficult thing to describe myself professionally. With a Bachelors of Architectural Studies and a Masters of Architecture from the University of Waterloo, I found myself augmenting my career at every step with the use of technology. Equipped with a caffeine addiction only architecture school could have provided, I ask why things are, challenge process, and not hide away from learning something new. I believe every problem requires a solution that is well-designed, and try to look for opportunities to deploy that mentality.
-                </p>
-              <p>
-                I have decided to have a few highlight reels populated depending on what you are looking for. For something more thorough, please feel free to reach out to me!
-              </p>
               <button className="neubutton" onClick={()=>this.setState({data: false, arch: true, prod: false})}>architect</button>
               <button className="neubutton" onClick={()=>this.setState({data: true, arch: false, prod: false})}>data</button>
               <button className="neubutton" onClick={()=>this.setState({data: false, arch: false, prod: false})}>cv</button>
               <button className="neubutton" onClick={()=>this.setState({data: false, arch: false, prod: true})}>product design</button>
-              <button className="neubutton" onClick={()=>this.setState({data: false, arch: false, prod: false})}>(clear)</button>
-            <hr/>
+              <button className="neubutton" onClick={()=>this.setState({data: false, arch: false, prod: false})}>(x)</button>
+              <hr/>
               </div>
-
-
-
-
-          </Row>
-
-
-         <Row>
+          </Row> */}
+         {/* <Row>
            <Col>
            <div className="resume-container">
               {this.state.arch ? <ArchResume/> : null}
@@ -76,17 +75,7 @@ class About extends Component {
               {this.state.prod ? <ProdResume/> : null}
             </div>
            </Col>
-         
-         </Row>
-
-
-            <Row id="socials">
-            <a href="https://www.linkedin.com/in/andrewrrcole/" target="_blank" rel="noopener noreferrer"><h3>Li</h3></a>
-            <a href="https://twitter.com/arrcole" target="_blank" rel="noopener noreferrer"><h3>Tw</h3></a>
-            <a href="https://www.behance.net/andrewrrco097b" target="_blank" rel="noopener noreferrer"><h3>Bē</h3></a>
-            <a href="https://www.instagram.com/arrcole/" target="_blank" rel="noopener noreferrer"><h3>Ig</h3></a>
-         </Row>
-
+         </Row> */}
         </Container>
  
 

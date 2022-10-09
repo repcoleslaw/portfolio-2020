@@ -1,0 +1,17 @@
+.title{
+    position: absolute;
+    top:15vh;
+    z-index: 1;
+  }
+  
+  .title h1{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: 80px;
+    letter-spacing: 15px;
+    color: #eeeeee;
+    text-shadow: 
+    -4px -4px 8px rgba(255,255,255,0.4),
+    4px 4px 8px rgba(0,0,0,0.08);
+    outline: none;
+  }
