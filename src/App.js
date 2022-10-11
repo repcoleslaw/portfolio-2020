@@ -55,9 +55,9 @@ class App extends Component {
               </Container>
 
               <Routes>
-                <Route exact path='/' component={Home} />
-                <Route path='/about' component={About} />
-                {/* <Route exact path='/portfolio' component={Portfolio} /> */}
+                <Route exact path='/' element={Home} />
+                <Route path='/about' element={About} />
+                {/* <Route exact path='/portfolio' element={Portfolio} /> */}
               </Routes>
             {/*close content container*/}
             <AlertDismissibleExample></AlertDismissibleExample>
