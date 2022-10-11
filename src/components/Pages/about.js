@@ -56,9 +56,7 @@ class About extends Component {
               </p>
               <button className="neubutton" onClick={()=>this.setState({data: false, arch: true, prod: false})}>architect</button>
               <button className="neubutton" onClick={()=>this.setState({data: true, arch: false, prod: false})}>data</button>
-              <button className="neubutton" onClick={()=>this.setState({data: false, arch: false, prod: false})}>cv</button>
               <button className="neubutton" onClick={()=>this.setState({data: false, arch: false, prod: true})}>product design</button>
-              <button className="neubutton" onClick={()=>this.setState({data: false, arch: false, prod: false})}>(clear)</button>
             <hr/>
               </div>
 
