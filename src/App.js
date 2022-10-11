@@ -8,11 +8,12 @@ import About from './components/Pages/about';
 // import Portfolio from './components/Pages/portfolio';
 
 // import styling
-import './App.css';
+
 
 
 // import components
 import NotFound from './components/Pages/NotFound';
+import Header from './components/Header/Header';
 
 
 
@@ -24,13 +25,12 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-          <div>
+            <Header/>
             <Routes>
               <Route exact path='/' element={<Home/>}/>
               <Route path='/about' element={<About/>}/>
               <Route path='*' element={<NotFound/>}/>
             </Routes>
-          </div>
         </Router>
       </div>
     );

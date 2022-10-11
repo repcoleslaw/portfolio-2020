@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-
-// bootstrap imports
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
+import {Box} from '@mui/material';
 
 //import other deps
 
@@ -23,17 +20,9 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        <Container bsPrefix="home">
-          <div className="title">
-            <h1>andrew</h1>
-            <h1>robert</h1>
-            <h1>ralston</h1>
-            <h1>cole</h1>
-          </div>
+      <Box>
           <ProjectGraph/>
-        </Container>
-      </div>
+      </Box>
     )
   }
 

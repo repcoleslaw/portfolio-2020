@@ -1,39 +1,25 @@
-import React, {Component} from 'react';
+import React from 'react'
+import { Button, Modal, Grid } from '@mui/material'
+import ContactModal from '../Contact/ContactModal';
 
+function Header() {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
-// import styles
-import './header.css'
-
-// import assets
-
-import logo from '../../assets/logo.png'
-
-
-class header extends Component{
-  render(){
-    return(
-      <div className='nav-bar'>
-        <div className="nav">
-          <div className="nav-top">
-            <img className='nav-logo' src={logo} alt='logo'></img>
-            <h1 id="header_name">andrew.rr.cole</h1>
-          </div>
-          
-          <div className="nav-bottom">
-
-            <ul id="sub-menu">
-              <li>work</li>
-              <li>blog</li>
-              <li>contact</li>
-            </ul>
-          </div>
-
-        </div>
-
-        <div className='nav-accent'></div>
-      </div>
-      
-    )
+  const buttonStyle={
+    background:"#eeeeee",
+    boxShadow:""
   }
+  
+  return (
+    <Grid sx={{textAlign:"center", padding:"2rem"}}>
+      <Button sx={buttonStyle} onClick={handleOpen}>Contact</Button>
+      <Modal open={open} onClose={handleClose}>
+        <ContactModal/>
+      </Modal>
+    </Grid>
+  )
 }
-export default header;
+
+export default Header
